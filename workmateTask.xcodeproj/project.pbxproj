@@ -22,6 +22,7 @@
 		7856622623F94289005403B3 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856621923F94289005403B3 /* RequestProtocol.swift */; };
 		7856622723F94289005403B3 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856621A23F94289005403B3 /* URLSessionDataTaskProtocol.swift */; };
 		7856622823F94289005403B3 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856621B23F94289005403B3 /* URLSessionProtocol.swift */; };
+		7856622D23F94672005403B3 /* TechInofoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856622C23F94672005403B3 /* TechInofoDetails.swift */; };
 		7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A023F8D4C4006D1134 /* AppDelegate.swift */; };
 		7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */; };
 		7861B2AA23F8D4E4006D1134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2A923F8D4E4006D1134 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		7856621923F94289005403B3 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		7856621A23F94289005403B3 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		7856621B23F94289005403B3 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		7856622C23F94672005403B3 /* TechInofoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechInofoDetails.swift; sourceTree = "<group>"; };
 		7861B29D23F8D4C4006D1134 /* workmateTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workmateTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7861B2A023F8D4C4006D1134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,29 @@
 			path = protocols;
 			sourceTree = "<group>";
 		};
+		7856622923F944DC005403B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7856622A23F9461B005403B3 /* ModelDatasApi */ = {
+			isa = PBXGroup;
+			children = (
+				7856622B23F94638005403B3 /* ViewControllerApiModel */,
+			);
+			path = ModelDatasApi;
+			sourceTree = "<group>";
+		};
+		7856622B23F94638005403B3 /* ViewControllerApiModel */ = {
+			isa = PBXGroup;
+			children = (
+				7856622C23F94672005403B3 /* TechInofoDetails.swift */,
+			);
+			path = ViewControllerApiModel;
+			sourceTree = "<group>";
+		};
 		7861B29423F8D4C4006D1134 = {
 			isa = PBXGroup;
 			children = (
@@ -155,12 +180,14 @@
 		7861B29F23F8D4C4006D1134 /* workmateTask */ = {
 			isa = PBXGroup;
 			children = (
+				7856622A23F9461B005403B3 /* ModelDatasApi */,
 				7856620923F94289005403B3 /* NetworkLayer */,
 				7861B2D023F90576006D1134 /* images */,
 				7861B2B623F8D57E006D1134 /* MainDelegates */,
 				7861B2B523F8D56E006D1134 /* UtilityGroup */,
 				7861B2A923F8D4E4006D1134 /* Assets.xcassets */,
 				7861B2C023F8D6F9006D1134 /* Controller */,
+				7856622923F944DC005403B3 /* ViewModel */,
 				7861B2AB23F8D4E4006D1134 /* LaunchScreen.storyboard */,
 				7861B2AE23F8D4E4006D1134 /* Info.plist */,
 			);
@@ -288,6 +315,7 @@
 				7856622723F94289005403B3 /* URLSessionDataTaskProtocol.swift in Sources */,
 				7861B2D823F90E95006D1134 /* ColorUtility.swift in Sources */,
 				785661E523F929B8005403B3 /* ProgressController.swift in Sources */,
+				7856622D23F94672005403B3 /* TechInofoDetails.swift in Sources */,
 				7856622423F94289005403B3 /* NTError.swift in Sources */,
 				7856621F23F94289005403B3 /* URLSessionDataTaskExtension.swift in Sources */,
 				7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */,
