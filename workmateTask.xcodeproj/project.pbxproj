@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A023F8D4C4006D1134 /* AppDelegate.swift */; };
 		7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */; };
-		7861B2A523F8D4C4006D1134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A423F8D4C4006D1134 /* ViewController.swift */; };
-		7861B2A823F8D4C4006D1134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2A623F8D4C4006D1134 /* Main.storyboard */; };
 		7861B2AA23F8D4E4006D1134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2A923F8D4E4006D1134 /* Assets.xcassets */; };
 		7861B2AD23F8D4E4006D1134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2AB23F8D4E4006D1134 /* LaunchScreen.storyboard */; };
+		7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */; };
+		7861B2C823F8D97F006D1134 /* ViewControllerRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7861B29D23F8D4C4006D1134 /* workmateTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workmateTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7861B2A023F8D4C4006D1134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7861B2A423F8D4C4006D1134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7861B2A723F8D4C4006D1134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7861B2A923F8D4E4006D1134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7861B2AC23F8D4E4006D1134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7861B2AE23F8D4E4006D1134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRoot.swift; sourceTree = "<group>"; };
+		7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerRoot.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,39 @@
 		7861B29F23F8D4C4006D1134 /* workmateTask */ = {
 			isa = PBXGroup;
 			children = (
-				7861B2A023F8D4C4006D1134 /* AppDelegate.swift */,
-				7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */,
-				7861B2A423F8D4C4006D1134 /* ViewController.swift */,
-				7861B2A623F8D4C4006D1134 /* Main.storyboard */,
+				7861B2B623F8D57E006D1134 /* MainDelegates */,
+				7861B2B523F8D56E006D1134 /* UtilityGroup */,
 				7861B2A923F8D4E4006D1134 /* Assets.xcassets */,
+				7861B2C023F8D6F9006D1134 /* Controller */,
 				7861B2AB23F8D4E4006D1134 /* LaunchScreen.storyboard */,
 				7861B2AE23F8D4E4006D1134 /* Info.plist */,
 			);
 			path = workmateTask;
+			sourceTree = "<group>";
+		};
+		7861B2B523F8D56E006D1134 /* UtilityGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UtilityGroup;
+			sourceTree = "<group>";
+		};
+		7861B2B623F8D57E006D1134 /* MainDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7861B2A023F8D4C4006D1134 /* AppDelegate.swift */,
+				7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */,
+			);
+			path = MainDelegates;
+			sourceTree = "<group>";
+		};
+		7861B2C023F8D6F9006D1134 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */,
+				7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7861B2AD23F8D4E4006D1134 /* LaunchScreen.storyboard in Resources */,
+				7861B2C823F8D97F006D1134 /* ViewControllerRoot.xib in Resources */,
 				7861B2AA23F8D4E4006D1134 /* Assets.xcassets in Resources */,
-				7861B2A823F8D4C4006D1134 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7861B2A523F8D4C4006D1134 /* ViewController.swift in Sources */,
+				7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */,
 				7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */,
 				7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +171,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7861B2A623F8D4C4006D1134 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7861B2A723F8D4C4006D1134 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7861B2AB23F8D4E4006D1134 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CCWRT2NR3;
 				INFOPLIST_FILE = workmateTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CCWRT2NR3;
 				INFOPLIST_FILE = workmateTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
