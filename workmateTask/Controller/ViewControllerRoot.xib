@@ -246,14 +246,15 @@
                                 <constraint firstAttribute="trailing" secondItem="f9J-Tr-EjA" secondAttribute="trailing" constant="24" id="zYa-Wk-c3h"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Z-8T-aPe">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Z-8T-aPe" customClass="CircleButton" customModule="workmateTask" customModuleProvider="target">
                             <rect key="frame" x="127" y="385" width="150" height="150"/>
                             <color key="backgroundColor" red="0.46985327954318978" green="0.74996154589086306" blue="0.30418351077594291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="1Iv-kR-UGb"/>
                                 <constraint firstAttribute="height" constant="150" id="bun-GK-II0"/>
                             </constraints>
-                            <state key="normal" title="Button">
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                            <state key="normal" title="Clock In">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>

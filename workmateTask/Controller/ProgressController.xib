@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressController" customModule="workmateTask" customModuleProvider="target">
+            <connections>
+                <outlet property="checkLbl" destination="Cdp-LJ-0Kc" id="Ga8-TX-Lmd"/>
+                <outlet property="prograssBar" destination="tKV-Jr-1Yy" id="mZL-Yj-66g"/>
+                <outlet property="progressBtn" destination="4mQ-BI-i0l" id="kip-EY-SpC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="ProgressController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tKV-Jr-1Yy">
+                    <rect key="frame" x="20" y="447" width="374" height="2"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking In..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdp-LJ-0Kc">
+                    <rect key="frame" x="106" y="380.5" width="203" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mQ-BI-i0l">
+                    <rect key="frame" x="161" y="485" width="93" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="Cancel"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="tKV-Jr-1Yy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4KV-GF-JC3"/>
+                <constraint firstItem="tKV-Jr-1Yy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8qM-q5-ZPx"/>
+                <constraint firstAttribute="trailing" secondItem="tKV-Jr-1Yy" secondAttribute="trailing" constant="20" id="IkQ-t0-rmt"/>
+                <constraint firstItem="4mQ-BI-i0l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="161" id="QHR-Yg-a0i"/>
+                <constraint firstItem="Cdp-LJ-0Kc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="106" id="ZD0-5L-zhd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cdp-LJ-0Kc" secondAttribute="trailing" constant="105" id="ZX5-Do-5yi"/>
+                <constraint firstItem="tKV-Jr-1Yy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aWR-cP-5hX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4mQ-BI-i0l" secondAttribute="trailing" constant="160" id="gsG-Zz-xca"/>
+                <constraint firstItem="tKV-Jr-1Yy" firstAttribute="top" secondItem="Cdp-LJ-0Kc" secondAttribute="bottom" constant="40" id="mlc-Hd-ezU"/>
+                <constraint firstItem="4mQ-BI-i0l" firstAttribute="top" secondItem="tKV-Jr-1Yy" secondAttribute="bottom" constant="36" id="xy4-ZP-9W0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
+        </view>
+    </objects>
+</document>

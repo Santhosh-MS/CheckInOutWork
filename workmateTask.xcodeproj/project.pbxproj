@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785661E523F929B8005403B3 /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785661E323F929B8005403B3 /* ProgressController.swift */; };
+		785661E623F929B8005403B3 /* ProgressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785661E423F929B8005403B3 /* ProgressController.xib */; };
 		7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A023F8D4C4006D1134 /* AppDelegate.swift */; };
 		7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */; };
 		7861B2AA23F8D4E4006D1134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2A923F8D4E4006D1134 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		785661E323F929B8005403B3 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
+		785661E423F929B8005403B3 /* ProgressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressController.xib; sourceTree = "<group>"; };
 		7861B29D23F8D4C4006D1134 /* workmateTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workmateTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7861B2A023F8D4C4006D1134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7861B2A223F8D4C4006D1134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			children = (
 				7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */,
 				7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */,
+				785661E323F929B8005403B3 /* ProgressController.swift */,
+				785661E423F929B8005403B3 /* ProgressController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785661E623F929B8005403B3 /* ProgressController.xib in Resources */,
 				7861B2D423F90577006D1134 /* person.png in Resources */,
 				7861B2D623F90577006D1134 /* placemarker.png in Resources */,
 				7861B2AD23F8D4E4006D1134 /* LaunchScreen.storyboard in Resources */,
@@ -190,6 +197,7 @@
 			files = (
 				7861B2DA23F90EE4006D1134 /* ButtonUtility.swift in Sources */,
 				7861B2D823F90E95006D1134 /* ColorUtility.swift in Sources */,
+				785661E523F929B8005403B3 /* ProgressController.swift in Sources */,
 				7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */,
 				7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */,
 				7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */,
