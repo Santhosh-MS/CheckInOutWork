@@ -34,8 +34,21 @@ class ViewControllerRoot: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+   
+    
+    
+    @IBAction func actionCheckInOut(_ sender: Any) {
+        
+//         ProgressController.Present()
+        
+       let Vc =  ProgressController.get()
+        self.present(Vc, animated: true, completion: { ()-> Void in
+            print("present open ")
+            
+        })
+    }
     func setupNavigationCtrl() -> Void {
            self.navigationItem.title = "Time Sheet "
-           
        }
+    
 }

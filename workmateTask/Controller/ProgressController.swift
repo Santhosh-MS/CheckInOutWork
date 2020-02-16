@@ -18,10 +18,15 @@ class ProgressController: UIViewController {
     var progressBarTimer : Timer!
     
     
-    class func get() -> ProgressController {
-        let loadView = ProgressController(nibName: "ProgressController", bundle: nil)
-         print("rootView  ready")
-        return loadView
+    class func Present(){
+       let progressViewCtrl = ProgressController(nibName: "ProgressController", bundle: nil)
+       let navigationController = UINavigationController(rootViewController: progressViewCtrl)
+       UIApplication.shared.keyWindow?.rootViewController?.present(
+           navigationController, animated: true, completion: nil)
+    }
+    class func get() -> ProgressController{
+       let progressViewCtrl = ProgressController(nibName: "ProgressController", bundle: nil)
+       return progressViewCtrl
     }
     
     override func viewDidLoad() {
@@ -65,11 +70,14 @@ class ProgressController: UIViewController {
     
     @objc func updateProgressView(){
            prograssBar.progress += 0.01
-          print("progress count  --> \(prograssBar.progress)")
+//          print("progress count  --> \(prograssBar.progress)")
            prograssBar.setProgress(prograssBar.progress, animated: true)
            if prograssBar.progress == 1.0 {
             progressBarTimer.invalidate()
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: { () -> Void in
+                print("present close ")
+                
+            })
              
            }
            
