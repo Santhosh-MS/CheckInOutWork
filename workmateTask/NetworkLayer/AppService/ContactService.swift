@@ -52,7 +52,7 @@ var baseURL: URL {
                     return header
         case .TechDetails,.CheckInCheckOut :
                     header.updateValue("application/json", forKey: "Content-Type")
-                    header.updateValue("token \(String(describing: Constants.Service.AccessToken))", forKey: "Authorization")
+                    header.updateValue("token \(String(describing: Constants.Service.AccessToken!))", forKey: "Authorization")
                     return header
             }
     }

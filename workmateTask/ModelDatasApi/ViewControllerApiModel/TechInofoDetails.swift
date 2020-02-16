@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct TechInofoDetails: Codable {                                //getDatas for TechIno Model
+struct Techdetails: Codable {                     //getDatas for TechIno Model
     let id: Int?
     let created_date : String?
     let modified_date : String?

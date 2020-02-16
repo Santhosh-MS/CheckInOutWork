@@ -10,7 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewControllerRoot" customModule="workmateTask" customModuleProvider="target">
             <connections>
+                <outlet property="locationADDs" destination="Ro8-bv-EG3" id="aic-N5-FBL"/>
+                <outlet property="managerName" destination="nlp-Wg-j7Z" id="vwL-z9-oF4"/>
+                <outlet property="mangerPhn" destination="f9J-Tr-EjA" id="Qb5-6j-pVR"/>
+                <outlet property="positionName" destination="7Nk-qD-Wre" id="S0q-Pa-vrf"/>
+                <outlet property="titleCo" destination="VNL-SO-yIj" id="F7j-kn-gy3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wageAmt" destination="doH-Zv-Xlh" id="Guw-IP-jhk"/>
+                <outlet property="wageTyp" destination="ld8-tJ-xO0" id="MFu-OG-vxU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

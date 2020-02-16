@@ -10,34 +10,34 @@ import Foundation
 
 class HttpClient {
     
-// MARK:- Typealias  ----> it Give an alertnative name for existing Type
+    // MARK:- Typealias  ----> it Give an alertnative name for existing Type
     
     /* result -- > A value that represents either a success or a failure, including an associated value in each case.*/
     typealias CompeltionResult = (Result<Data?,NTError>) -> Void
     
     static let shared = HttpClient(session: URLSession.shared)
-
-// MARK:- Custom Property
+    
+    // MARK:- Custom Property
     private let session : URLSessionProtocol
     private var task : URLSessionDataTaskProtocol?
     private var completionResult : CompeltionResult?
     
-   // MARK: - Initialiser
+    // MARK: - Initialiser
     init(session: URLSessionProtocol) {
         self.session = session
     }
-
+    
     func dataTask(_ request : RequestProtocol, completion : @escaping CompeltionResult){
         completionResult = completion
         var urlRequest = URLRequest(url: request.baseURL.appendingPathComponent(request.path), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: Constants.Service.timeOut)
         urlRequest.httpMethod = request.httpMethod.rawValue
         urlRequest.httpBody = request.httpBody
-//        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.allHTTPHeaderFields = request.httpHeaders
         
         task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let error = error {
-//                self.completionResult(.failure(NTError(error.localizedDescription)))
+                //                self.completionResult(.failure(NTError(error.localizedDescription)))
                 self.completionResult!(.failure(NTError(error.localizedDescription)))
                 return
             }
@@ -71,8 +71,8 @@ class HttpClient {
     func cancel(){
         self.task?.cancel()
     }
-//MARK:- private Completion function
-  private func CompeltionResult(_ result : Result<Data?,NTError>){
+    //MARK:- private Completion function
+    private func CompeltionResult(_ result : Result<Data?,NTError>){
         DispatchQueue.main.async {
             self.completionResult?(result)
         }
