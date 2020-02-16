@@ -13,6 +13,11 @@
 		7861B2AD23F8D4E4006D1134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2AB23F8D4E4006D1134 /* LaunchScreen.storyboard */; };
 		7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */; };
 		7861B2C823F8D97F006D1134 /* ViewControllerRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */; };
+		7861B2D423F90577006D1134 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2D123F90576006D1134 /* person.png */; };
+		7861B2D523F90577006D1134 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2D223F90576006D1134 /* phone.png */; };
+		7861B2D623F90577006D1134 /* placemarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 7861B2D323F90576006D1134 /* placemarker.png */; };
+		7861B2D823F90E95006D1134 /* ColorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2D723F90E95006D1134 /* ColorUtility.swift */; };
+		7861B2DA23F90EE4006D1134 /* ButtonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7861B2D923F90EE4006D1134 /* ButtonUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		7861B2AE23F8D4E4006D1134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7861B2C523F8D97F006D1134 /* ViewControllerRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRoot.swift; sourceTree = "<group>"; };
 		7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerRoot.xib; sourceTree = "<group>"; };
+		7861B2D123F90576006D1134 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		7861B2D223F90576006D1134 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		7861B2D323F90576006D1134 /* placemarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placemarker.png; sourceTree = "<group>"; };
+		7861B2D723F90E95006D1134 /* ColorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtility.swift; sourceTree = "<group>"; };
+		7861B2D923F90EE4006D1134 /* ButtonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 		7861B29F23F8D4C4006D1134 /* workmateTask */ = {
 			isa = PBXGroup;
 			children = (
+				7861B2D023F90576006D1134 /* images */,
 				7861B2B623F8D57E006D1134 /* MainDelegates */,
 				7861B2B523F8D56E006D1134 /* UtilityGroup */,
 				7861B2A923F8D4E4006D1134 /* Assets.xcassets */,
@@ -69,6 +80,8 @@
 		7861B2B523F8D56E006D1134 /* UtilityGroup */ = {
 			isa = PBXGroup;
 			children = (
+				7861B2D723F90E95006D1134 /* ColorUtility.swift */,
+				7861B2D923F90EE4006D1134 /* ButtonUtility.swift */,
 			);
 			path = UtilityGroup;
 			sourceTree = "<group>";
@@ -89,6 +102,16 @@
 				7861B2C623F8D97F006D1134 /* ViewControllerRoot.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		7861B2D023F90576006D1134 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7861B2D123F90576006D1134 /* person.png */,
+				7861B2D223F90576006D1134 /* phone.png */,
+				7861B2D323F90576006D1134 /* placemarker.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +172,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7861B2D423F90577006D1134 /* person.png in Resources */,
+				7861B2D623F90577006D1134 /* placemarker.png in Resources */,
 				7861B2AD23F8D4E4006D1134 /* LaunchScreen.storyboard in Resources */,
+				7861B2D523F90577006D1134 /* phone.png in Resources */,
 				7861B2C823F8D97F006D1134 /* ViewControllerRoot.xib in Resources */,
 				7861B2AA23F8D4E4006D1134 /* Assets.xcassets in Resources */,
 			);
@@ -162,6 +188,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7861B2DA23F90EE4006D1134 /* ButtonUtility.swift in Sources */,
+				7861B2D823F90E95006D1134 /* ColorUtility.swift in Sources */,
 				7861B2C723F8D97F006D1134 /* ViewControllerRoot.swift in Sources */,
 				7861B2A123F8D4C4006D1134 /* AppDelegate.swift in Sources */,
 				7861B2A323F8D4C4006D1134 /* SceneDelegate.swift in Sources */,
