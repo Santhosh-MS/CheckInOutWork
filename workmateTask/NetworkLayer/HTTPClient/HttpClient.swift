@@ -21,7 +21,7 @@ class HttpClient {
     private let session : URLSessionProtocol
     private var task : URLSessionDataTaskProtocol?
     private var completionResult : CompeltionResult?
-    
+ 
     // MARK: - Initialiser
     init(session: URLSessionProtocol) {
         self.session = session

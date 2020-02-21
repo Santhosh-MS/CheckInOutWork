@@ -19,13 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         print("Secn will connect")
-               let windowScence : UIWindowScene = scene as! UIWindowScene;
-               self.window = UIWindow(windowScene: windowScence)
-        guard let _ = (scene as? UIWindowScene) else { return }
-       
-        window?.rootViewController = rootViewCtrl()
-        self.window?.makeKeyAndVisible()
-        guard let _ = (scene as? UIWindowScene) else { return }
+    let windowScence : UIWindowScene = scene as! UIWindowScene;
+    self.window = UIWindow(windowScene: windowScence)
+    guard let _ = (scene as? UIWindowScene) else { return }
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = rootViewCtrl()
+    self.window?.makeKeyAndVisible()
+//  guard let _ = (scene as? UIWindowScene) else { return }
+    self.window?.windowScene = windowScence
     }
     
     @available(iOS 13.0,*)

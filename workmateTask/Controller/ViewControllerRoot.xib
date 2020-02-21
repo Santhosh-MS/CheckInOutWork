@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewControllerRoot" customModule="workmateTask" customModuleProvider="target">
             <connections>
+                <outlet property="ClockBtnStatus" destination="b5Z-8T-aPe" id="LyX-4c-5jf"/>
+                <outlet property="clockInLbl" destination="nEC-tB-Eac" id="GCK-Pl-Mej"/>
+                <outlet property="cloclkOutLbl" destination="eK7-rw-N2l" id="uKe-OY-PB2"/>
                 <outlet property="locationADDs" destination="Ro8-bv-EG3" id="aic-N5-FBL"/>
                 <outlet property="managerName" destination="nlp-Wg-j7Z" id="vwL-z9-oF4"/>
                 <outlet property="mangerPhn" destination="f9J-Tr-EjA" id="Qb5-6j-pVR"/>

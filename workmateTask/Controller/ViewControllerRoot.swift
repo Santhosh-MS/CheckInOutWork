@@ -18,9 +18,14 @@ class ViewControllerRoot: UIViewController {
     @IBOutlet weak var locationADDs: UILabel!
     @IBOutlet weak var managerName: UILabel!
     @IBOutlet weak var mangerPhn: UILabel!
+    @IBOutlet weak var ClockBtnStatus: CircleButton!
+    @IBOutlet weak var clockInLbl: UILabel!
+    @IBOutlet weak var cloclkOutLbl: UILabel!
     
     
     let ViewModel = ViewRootModel()
+//    let progViewModel = ProgressViewModel()
+    
     class func get() -> ViewControllerRoot {
         let rootView = ViewControllerRoot(nibName: "ViewControllerRoot", bundle: nil)
         print("rootView  ready")
@@ -29,6 +34,16 @@ class ViewControllerRoot: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewModel.rootViewDelegate = self
+//        progViewModel.CheckInOutDeleget = self
+        
+        if !CommonDatas.ClockStatus  {
+            print("check -->  : \(CommonDatas.ClockStatus)" )
+            self.ClockBtnStatus.setTitle("ClockIn", for: .normal)
+        }else{
+             print("check -->  : \(CommonDatas.ClockStatus)" )
+         self.ClockBtnStatus.setTitle("ClockOut", for: .normal)
+        }
+        
         setupNavigationCtrl()
         ViewModel.getLoginDetails()
     }
@@ -45,6 +60,8 @@ class ViewControllerRoot: UIViewController {
     @IBAction func actionCheckInOut(_ sender: Any) {
         
         let Vc =  ProgressController.get()
+        Vc.btnStatus = CommonDatas.ClockStatus
+        Vc.ClockDelegate = self
         self.present(Vc, animated: true, completion: { ()-> Void in
             print("present open ")
         })
@@ -79,4 +96,63 @@ extension ViewControllerRoot : getDetailsTechInfoDelegate {
     }
     
     
+}
+
+extension ViewControllerRoot : mainDataReturnINOUTDelegate {
+   
+    func clockInData(ClockIN: [String : Any]?) {
+        print(ClockIN ?? "data")
+
+        self.ClockBtnStatus.setTitle("CheckOut", for: .normal)
+        CommonDatas.ClockStatus = !CommonDatas.ClockStatus
+        guard let INTimeS = ClockIN   else {
+            return
+        }
+        guard let INTime = INTimeS["clockIn"]   else {
+            return
+        }
+        print( UTCToLocal(date: INTime as! String))
+        
+        guard let OUTTime = INTimeS["clockOut"] else {
+            return
+        }
+        print( UTCToLocal(date: OUTTime as! String))
+
+    }
+    
+    func clockOutData(ClockOUT: [String : Any]?) {
+        print(ClockOUT ?? "data")
+        CommonDatas.ClockStatus = !CommonDatas.ClockStatus
+        self.ClockBtnStatus.setTitle("CheckIN", for: .normal)
+        
+        guard let OUTTimeS = ClockOUT   else {
+            return
+        }
+        guard let Outime = OUTTimeS["clockIn"]   else {
+            return
+        }
+        print( UTCToLocal(date: Outime as! String))
+        guard let Outimes = OUTTimeS["clockOut"] else {
+            return
+        }
+        print( UTCToLocal(date: Outimes as! String))
+
+        
+        
+    }
+ 
+    func UTCToLocal(date:String) -> String {
+        if date == "" {
+            return "-"
+        }else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+            
+            let dt = dateFormatter.date(from: date)
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: dt!)
+        }
+    }
 }

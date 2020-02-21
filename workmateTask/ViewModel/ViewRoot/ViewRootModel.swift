@@ -13,19 +13,19 @@ protocol getDetailsTechInfoDelegate {
 }
 
 class ViewRootModel {
-    private var httpClient : HttpClient!
+     var httpClient : HttpClient!
     
     var rootViewDelegate : getDetailsTechInfoDelegate?
     init(client : HttpClient? = nil ){
         self.httpClient = client ?? HttpClient.shared
     }
-    
+  //MARK:- API For Call for get Token
     public func getLoginDetails(){
     var loginData : [String : String] = [:]
     loginData.updateValue("+6281313272005", forKey: "username")
     loginData.updateValue("alexander", forKey: "password")
             
-        httpClient.dataTask(ContactAPI.Login(urlPath: "auth/login/", userLogin: loginData)){ [weak self] (result) in
+        httpClient.dataTask(ContactAPI.Login(urlPath: "auth/login/", userLogin:loginData )){ [weak self] (result) in
             guard self != nil else{
                 return
             }
@@ -55,7 +55,7 @@ class ViewRootModel {
         }
     
     
-    
+//MARK:- API For Call for LoginTechDetails
     func getTechInfo() -> Void{
     httpClient.dataTask(ContactAPI.TechDetails(UrlMethod: "staff-requests/26074/")){ [weak self] (result) in
         guard self != nil else{

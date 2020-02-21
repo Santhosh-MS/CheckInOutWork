@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol  mainDataReturnINOUTDelegate {
+    func clockInData(ClockIN : [String : Any]?) -> Void
+    func clockOutData(ClockOUT: [String : Any]?) -> Void
+}
+
 class ProgressController: UIViewController {
 
     @IBOutlet weak var checkLbl: UILabel!
@@ -15,8 +20,11 @@ class ProgressController: UIViewController {
     @IBOutlet weak var prograssBar: UIProgressView!
     
     @IBOutlet weak var progressBtn: UIButton!
-    var progressBarTimer : Timer!
     
+    var progressBarTimer : Timer!
+    var ViewModel = ProgressViewModel()
+    var ClockDelegate : mainDataReturnINOUTDelegate?
+    var btnStatus : Bool?
     
     class func Present(){
        let progressViewCtrl = ProgressController(nibName: "ProgressController", bundle: nil)
@@ -31,6 +39,7 @@ class ProgressController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ViewModel.CheckInOutDeleget = self
         progressBtn.addTarget(self, action: #selector(clacelBtnaction), for:.touchUpInside)
         setUPProgressBar()
         
@@ -65,7 +74,10 @@ class ProgressController: UIViewController {
     }
     @objc func clacelBtnaction() -> Void{
         progressBarTimer.invalidate()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion:{ () -> Void in
+           
+            
+        })
     }
     
     @objc func updateProgressView(){
@@ -75,11 +87,26 @@ class ProgressController: UIViewController {
            if prograssBar.progress == 1.0 {
             progressBarTimer.invalidate()
             self.dismiss(animated: true, completion: { () -> Void in
-                print("present close ")
+                print("present close : ")
+                print("Clock Status : \(CommonDatas.ClockStatus)")
+                self.ViewModel.sendCheckInCheckOutStatus(status : CommonDatas.ClockStatus )
                 
             })
              
            }
            
        }
+}
+
+extension ProgressController : TimeReturnDelegate {
+    func timeRetunsChekin(times: [String : Any]?) {
+
+        self.ClockDelegate?.clockInData(ClockIN: times)
+//        self.ClockBtnStatus.setTitle("CheckIn", for: .normal)
+    }
+    
+    func timeRerurnsCheckOut(times: [String : Any]?) {
+       
+        self.ClockDelegate?.clockOutData(ClockOUT: times)
+    }
 }
