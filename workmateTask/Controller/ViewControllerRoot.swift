@@ -24,7 +24,7 @@ class ViewControllerRoot: UIViewController {
     
     
     let ViewModel = ViewRootModel()
-//    let progViewModel = ProgressViewModel()
+    //    let progViewModel = ProgressViewModel()
     
     class func get() -> ViewControllerRoot {
         let rootView = ViewControllerRoot(nibName: "ViewControllerRoot", bundle: nil)
@@ -34,14 +34,14 @@ class ViewControllerRoot: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewModel.rootViewDelegate = self
-//        progViewModel.CheckInOutDeleget = self
+        //        progViewModel.CheckInOutDeleget = self
         
         if !CommonDatas.ClockStatus  {
             print("check -->  : \(CommonDatas.ClockStatus)" )
             self.ClockBtnStatus.setTitle("ClockIn", for: .normal)
         }else{
-             print("check -->  : \(CommonDatas.ClockStatus)" )
-         self.ClockBtnStatus.setTitle("ClockOut", for: .normal)
+            print("check -->  : \(CommonDatas.ClockStatus)" )
+            self.ClockBtnStatus.setTitle("ClockOut", for: .normal)
         }
         
         setupNavigationCtrl()
@@ -69,7 +69,6 @@ class ViewControllerRoot: UIViewController {
     func setupNavigationCtrl() -> Void {
         self.navigationItem.title = "Time Sheet "
     }
-    
 }
 
 extension ViewControllerRoot : getDetailsTechInfoDelegate {
@@ -99,10 +98,12 @@ extension ViewControllerRoot : getDetailsTechInfoDelegate {
 }
 
 extension ViewControllerRoot : mainDataReturnINOUTDelegate {
-   
+    
+    
+    
     func clockInData(ClockIN: [String : Any]?) {
         print(ClockIN ?? "data")
-
+        
         self.ClockBtnStatus.setTitle("CheckOut", for: .normal)
         CommonDatas.ClockStatus = !CommonDatas.ClockStatus
         guard let INTimeS = ClockIN   else {
@@ -112,12 +113,13 @@ extension ViewControllerRoot : mainDataReturnINOUTDelegate {
             return
         }
         print( UTCToLocal(date: INTime as! String))
+        self.clockInLbl.text = UTCToLocal(date: INTime as? String ?? "-")
         
         guard let OUTTime = INTimeS["clockOut"] else {
             return
         }
         print( UTCToLocal(date: OUTTime as! String))
-
+        self.cloclkOutLbl.text = UTCToLocal(date: OUTTime as? String ?? "-")
     }
     
     func clockOutData(ClockOUT: [String : Any]?) {
@@ -132,15 +134,16 @@ extension ViewControllerRoot : mainDataReturnINOUTDelegate {
             return
         }
         print( UTCToLocal(date: Outime as! String))
+        self.clockInLbl.text = UTCToLocal(date: Outime as? String ?? "-")
         guard let Outimes = OUTTimeS["clockOut"] else {
             return
         }
         print( UTCToLocal(date: Outimes as! String))
-
+        self.cloclkOutLbl.text = UTCToLocal(date: Outimes as? String ?? "-")
         
         
     }
- 
+    
     func UTCToLocal(date:String) -> String {
         if date == "" {
             return "-"
@@ -153,6 +156,16 @@ extension ViewControllerRoot : mainDataReturnINOUTDelegate {
             dateFormatter.timeZone = TimeZone.current
             dateFormatter.dateFormat = "h:mm a"
             return dateFormatter.string(from: dt!)
+        }
+    }
+    func ErrorMsg(mssg: String) {
+        if mssg == "400"{
+            if CommonDatas.ClockStatus {
+                //you can already clocked In
+                UIAlertController.show("you can already clocked Out", from: self)
+            }else {
+                UIAlertController.show("you can already clocked In", from: self)
+            }
         }
     }
 }

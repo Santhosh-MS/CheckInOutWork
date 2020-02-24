@@ -10,4 +10,5 @@ import Foundation
 
 class CommonDatas : NSObject {
    static var ClockStatus : Bool = false
+    static var errcode : Int = 0
 }

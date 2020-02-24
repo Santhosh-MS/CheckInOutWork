@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TimeReturnDelegate {
     func timeRetunsChekin(times : [String : Any]?) -> Void
     func timeRerurnsCheckOut(times : [String : Any]?) -> Void
+    func errorMessage(msg : String) -> Void
 }
 class ProgressViewModel {
     var httpClient : HttpClient!
@@ -64,11 +66,14 @@ extension ProgressViewModel{
                     var timeDict : [String : String]? = [:]
                     timeDict?.updateValue(TimeSheetIn["clock_in_time"] as? String ?? "", forKey: "clockIn")
                     timeDict?.updateValue(TimeSheetIn["clock_out_time"] as? String ?? "", forKey: "clockOut")
-//                            self.callSendData.timeRetunsChekin(times: TimeSheetIn)
                     self.sendDataCheckIN(timeIns: timeDict)
                         }
                     }catch let err as NSError {
                         print("err : \(err.localizedDescription)")
+                        
+                        if CommonDatas.errcode == 400 {
+                            self.CheckInOutDeleget?.errorMessage(msg: "400")
+                        }
                     }
                 })
             case .failure(let error):

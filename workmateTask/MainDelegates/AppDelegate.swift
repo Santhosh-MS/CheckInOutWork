@@ -21,17 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-     
+        
         if #available(iOS 13.0,*){
-                     return true
-               }else{
-                   window = UIWindow(frame: UIScreen.main.bounds)
-                   window?.rootViewController = rootViewCtrl()
-                   window?.makeKeyAndVisible()
-                     return true
-               }
+            return true
+        }else{
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = rootViewCtrl()
+            window?.makeKeyAndVisible()
+            return true
+        }
     }
-
+    
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0,*)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -50,12 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     func rootViewCtrl() -> UIViewController {
-            print("rootView  init")
+        print("rootView  init")
         let mainViewController = ViewControllerRoot.get()
-            mainViewController.view.backgroundColor = UIColor.lightGray
-            let rootViewController = UINavigationController(rootViewController: mainViewController)
-            print("rootView  returned ")
-            return rootViewController
-        }
+        mainViewController.view.backgroundColor = UIColor.lightGray
+        let rootViewController = UINavigationController(rootViewController: mainViewController)
+        print("rootView  returned ")
+        return rootViewController
+    }
 }
 

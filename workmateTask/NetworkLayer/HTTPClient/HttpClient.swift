@@ -21,7 +21,7 @@ class HttpClient {
     private let session : URLSessionProtocol
     private var task : URLSessionDataTaskProtocol?
     private var completionResult : CompeltionResult?
- 
+    
     // MARK: - Initialiser
     init(session: URLSessionProtocol) {
         self.session = session
@@ -32,24 +32,27 @@ class HttpClient {
         var urlRequest = URLRequest(url: request.baseURL.appendingPathComponent(request.path), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: Constants.Service.timeOut)
         urlRequest.httpMethod = request.httpMethod.rawValue
         urlRequest.httpBody = request.httpBody
-        //        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.allHTTPHeaderFields = request.httpHeaders
-        
         task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let error = error {
-                //                self.completionResult(.failure(NTError(error.localizedDescription)))
                 self.completionResult!(.failure(NTError(error.localizedDescription)))
                 return
             }
+           
             if let response = response as? HTTPURLResponse{
                 let httpStatusCode = response.statusCode
+                if httpStatusCode == 204{
+                    self.completionResult!(.success(nil))
+                }
+                if httpStatusCode == 400 {
+                    CommonDatas.errcode = 400
+                    self.completionResult!(.failure(NTError("400")))
+                }
                 if let data = data {
                     self.completionResult!(.success(data))
                 }
                 print("httpStatusCode : \(httpStatusCode)")
-                if httpStatusCode == 204{
-                    self.completionResult!(.success(nil))
-                }
+                
             }else{
                 let commonErrorMessage = NSLocalizedString("Something went wrong!", comment : "")
                 guard let data = data else {
