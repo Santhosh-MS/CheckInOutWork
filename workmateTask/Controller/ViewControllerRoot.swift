@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewControllerRoot: UIViewController {
     
@@ -43,7 +44,7 @@ class ViewControllerRoot: UIViewController {
             print("check -->  : \(CommonDatas.ClockStatus)" )
             self.ClockBtnStatus.setTitle("ClockOut", for: .normal)
         }
-        
+        SampleCheckREsp()
         setupNavigationCtrl()
         ViewModel.getLoginDetails()
     }
@@ -69,11 +70,33 @@ class ViewControllerRoot: UIViewController {
     func setupNavigationCtrl() -> Void {
         self.navigationItem.title = "Time Sheet "
     }
+    
+    
+    
+    func SampleCheckREsp() -> Void {
+//    let url = URL(string: "https://httpbin.org/get")!
+         let url = URL(string: "http://www.mocky.io/v2/5e6f126b3300009b1df0766b")!
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let error = error {
+            print("error: \(error)")
+        } else {
+            if let response = response as? HTTPURLResponse {
+                print("statusCode: \(response.statusCode)")
+            }
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                   let Mytechdetails = try? JSONDecoder().decode(Techdetails1.self, from: data) as Techdetails1
+
+                print("Mytechdetails: \(Mytechdetails! )")
+            }
+        }
+    }
+    task.resume()
+    }
 }
 
 extension ViewControllerRoot : getDetailsTechInfoDelegate {
     func TechInfoServiceDetails(infoTech: Techdetails) {
-        
+        print(infoTech)
         
         guard let name = infoTech.position.name,let Location = infoTech.location.address.street_1,let title = infoTech.title,let amount = infoTech.wage_amount,let amountType = infoTech.wage_type,let managerName = infoTech.manager.name,let phoneNumaber = infoTech.manager.phone  else{
             return
@@ -92,7 +115,7 @@ extension ViewControllerRoot : getDetailsTechInfoDelegate {
         self.managerName.text = managerName
         print("ManagerName  :\(phoneNumaber)")
         self.mangerPhn.text = phoneNumaber
-    }
+   }
     
     
 }
